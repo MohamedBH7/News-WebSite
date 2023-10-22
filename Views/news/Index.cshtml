@@ -1,0 +1,56 @@
+﻿@model IEnumerable<pp.Models.news>
+<p>
+    <br />
+    <a asp-action="Create" class="btn btn-success">Create New</a>
+    <br />
+</p>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th >
+                @Html.DisplayNameFor(model => model.Topic)
+            </th>
+            <th style ="width: 1px;">
+                @Html.DisplayNameFor(model => model.categrory)
+            </th>
+            <th style="width: 274px;">
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                    <a href="@Html.DisplayFor(modelItem => item.Image)" @Html.DisplayFor(modelItem => item.Image)>Image</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Topic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.categrory.Name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-dark">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

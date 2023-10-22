@@ -1,0 +1,35 @@
+﻿@model List<contact_us>
+<section id="testimonials" class="testimonials">
+    <div class="container">
+        <div class="section-title">
+            <h2>Suggestions and opinions</h2>
+            <p>Here You Can See People Suggestions who submit the Form , From My DataBase SqlServer </p>
+        </div>
+        <div class="testimonials-slider">
+            <div class="slider-wrapper">
+                @foreach (var item in Model)
+                {
+                    <div class="testimonial-item">
+                        
+
+                        <hr />
+                        <p>
+                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                            @item.Message
+                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                        </p>
+                        <img src="~/assets/img/logo_new-removebg-preview.png" class="testimonial-img" alt="">
+                        <h4>Subject:<br>@item.Subject</h4>
+                        <h3>@item.Name</h3>
+                            <h4>@item.Email</h4>
+                        
+                        <hr>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
